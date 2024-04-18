@@ -1,16 +1,23 @@
 from selenium import webdriver
+import time
 
+from config import user_etma, pass_etma, user_hp, pass_hp, etma_url, etma_inbox_url 
+from app.click_checkbox import click_checkbox
+from app.update_url import update_url
 from app.login import login
-from app.click_element import click_on_element
-from config import username, password
 
-website_url = "https://hp-tmsweb-itg.inc.hp.com/"
-element_id = "projects"
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome() 
 
-driver.get(website_url)
+driver.get(etma_url)
 
-login(driver, username, password)
+login(driver, user_etma, pass_etma, user_hp, pass_hp)
  
-click_on_element(driver, element_id)
+update_url(driver, etma_inbox_url)
+
+time.sleep(5)
+
+click_checkbox(driver)
+
+while True:
+    pass
