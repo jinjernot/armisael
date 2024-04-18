@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 import time
 
 def login(driver, user_etma, pass_etma, user_hp, pass_hp):
+    time.sleep(5) # tiempo para que metan el pingID
+
     """Se logea a HP y ETMA"""
 
     hp_username_field = driver.find_element(By.ID, "username")
